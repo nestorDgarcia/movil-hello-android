@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        // Referenciar elementos de la interfaz
+        // Referenciar elementos de la interfaz g
         val textView = findViewById<TextView>(R.id.textView)
         val btnSaludar = findViewById<Button>(R.id.btnSaludar)
 
