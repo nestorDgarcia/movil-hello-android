@@ -13,7 +13,7 @@ android {
             viewBinding = true
         }
 
-}
+    }
 
     defaultConfig {
         applicationId = "com.nesquid.helloandroidgarcianestor"

@@ -10,6 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nesquid.helloandroidgarcianestor.databinding.FragmentUserListBinding
 import com.nesquid.helloandroidgarcianestor.viewmodel.UserViewModel
+import androidx.navigation.fragment.findNavController
+import com.nesquid.helloandroidgarcianestor.R
 
 class UserListFragment : Fragment() {
 
@@ -55,8 +57,11 @@ class UserListFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.buttonAddUser.setOnClickListener {
-            // Por ahora solo mostrar Toast
-            Toast.makeText(context, "Agregar usuario próximamente", Toast.LENGTH_SHORT).show()
+            // Navegar al primer usuario como ejemplo
+            viewModel.users.value?.firstOrNull()?.let { user ->
+                viewModel.selectUser(user)
+                findNavController().navigate(R.id.action_list_to_detail)
+            }
         }
     }
 
@@ -64,4 +69,8 @@ class UserListFragment : Fragment() {
         super.onDestroyView()
         _binding = null // Evitar memory leaks
     }
+
+
+
+
 }
