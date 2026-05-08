@@ -4,15 +4,16 @@ plugins {
 
 android {
     namespace = "com.nesquid.helloandroidgarcianestor"
+
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
         }
+    } // <-- Aquí ya se cierra compileSdk
 
-        buildFeatures {
-            viewBinding = true
-        }
-
+    // buildFeatures va directamente dentro de android { }
+    buildFeatures {
+        viewBinding = true
     }
 
     defaultConfig {
@@ -49,6 +50,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     // ViewModel y LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
@@ -60,4 +62,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
+    // Gson para guardar datos
+    implementation("com.google.code.gson:gson:2.10.1")
 }
