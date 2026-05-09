@@ -48,5 +48,28 @@ Además, utiliza el ciclo de vida de las Activities (métodos como onPause(), on
  - Uber
 
 
+Taller 3 - Lista de Tareas con Fragments, Persistencia y Recordatorios
 
+Fecha: 08/05/2026
+
+Qué se implementó
+
+Se desarrolló una aplicación de lista de tareas (To-Do App) con las siguientes funcionalidades:
+
+Arquitectura:
+- Una sola Activity principal (MainActivity) como host de navegación.
+- Dos Fragments: TaskListFragment para ver la lista de tareas y TaskDetailFragment para crear o editar una tarea.
+- Navegación entre Fragments usando Navigation Component con un nav_graph.xml.
+- Arquitectura MVVM con TaskViewModel y TaskRepository separando la lógica de datos de la interfaz.
+
+Funcionalidades:
+- Crear nuevas tareas con título y descripción.
+- Editar tareas existentes tocándolas en la lista.
+- Seleccionar fecha y hora del recordatorio mediante DatePickerDialog y TimePickerDialog.
+- Activar o desactivar el recordatorio por tarea con un Switch.
+- Persistencia local de tareas usando SharedPreferences y serialización con Gson, de modo que las tareas se conservan al cerrar y volver a abrir la app.
+
+Opción de recordatorio utilizada
+
+Se utilizó la opción de notificación local. Al guardar una tarea con el recordatorio activado, se programa una alarma exacta mediante AlarmManager.setExactAndAllowWhileIdle() que dispara un BroadcastReceiver (ReminderReceiver) en la fecha y hora seleccionada por el usuario. El receiver construye y muestra una notificación local en la barra de estado del dispositivo con el título de la tarea como contenido.
 
